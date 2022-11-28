@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.draegerlab</groupId>
+  <artifactId>ModelEditing</artifactId>
+
+  <!-- Output to jar format -->
+  <packaging>jar</packaging>
+
+  <!-- =================================================================== -->
+  <!-- General project information                                         -->
+  <!-- =================================================================== -->
+
+  <name>A collection of tools for model editing</name>
+  <version>1.0</version>
+  <url>https://github.com/draeger-lab/ModelEditing/</url>
+  <inceptionYear>2021</inceptionYear>
+  <description>
+    This project provides some useful classes for working with SBML models.
+  </description>
+
+  <properties>
+    <jdk.version>1.8</jdk.version>
+    <maven.build.timestamp.format>yyyy</maven.build.timestamp.format>
+    <year>${maven.build.timestamp}</year>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.license.url>${project.url}/blob/main/LICENSE</project.license.url>
+    <sysbio.version>1403</sysbio.version> <!-- SVN revision -->
+  </properties>
+  
+  	<!-- =================================================================== -->
+	<!-- Repositories -->
+	<!-- =================================================================== -->
+
+	<repositories>
+      <!-- Local libraries are an in-project repository       -->
+      <!-- Add the dependencies and put them in               -->
+      <!-- ${project.basedir}/lib/groupId/artifactId/version/ -->
+    <repository>
+      <id>libs</id>
+      <url>file://${project.basedir}/lib</url>
+    </repository>
+  </repositories>
+
+  <!-- =================================================================== -->
+  <!-- Dependencies                                                        -->
+  <!-- =================================================================== -->
+
+  <dependencies>
+    <dependency>
+      <groupId>org.draegerlab</groupId>
+      <artifactId>sbscl</artifactId>
+      <version>2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>de.zbit</groupId>
+      <artifactId>SysBio</artifactId>
+      <version>${sysbio.version}</version>
+    </dependency>
+  </dependencies>
+
+  <!-- =================================================================== -->
+  <!-- Building                                                            -->
+  <!-- =================================================================== -->
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.3</version>
+          <configuration>
+            <source>${jdk.version}</source>
+            <target>${jdk.version}</target>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
